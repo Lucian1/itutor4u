@@ -1,0 +1,48 @@
+<div id="messageBox" *ngFor="let message of allMessage">
+  <div class="container" *ngIf="message.fromType =='Parent' ">
+    <h4>{{message.fromName}}:</h4>
+    <p>{{message.content}}</p>
+    <span class="time-right">{{message.time}}</span>
+  </div>
+
+  <div class="container darker" *ngIf="message.fromType =='Center'">
+      <h4>Me:</h4>
+      <p>{{message.content}}</p>
+      <span class="time-left">{{message.time}}</span>
+    </div>
+
+  
+<!-- 
+<div class="container">
+  <h4>Lu Bai:</h4>
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>  -->
+
+<!-- <div class="container darker">
+  <h4>me:</h4>
+  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+  <span class="time-left">11:05</span>
+</div>  -->
+</div>
+<!-- reply -->
+<div class="container darker">
+    <button class="open-button" (click)="openForm()">Reply</button>
+
+    <div class="chat-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>To Lu Bai:</h1>
+    
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" id="msg" (input)="content = $event.target.value" required></textarea>
+    
+        <button type="button" (click)="sendMsg()" onclick="document.getElementById('msg').value = ''" class="btn">Send</button>
+        <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+      </form>
+    </div>
+   
+  </div>
+ 
+  
+  
+

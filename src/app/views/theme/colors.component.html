@@ -1,0 +1,35 @@
+  <!-- <div class="alert alert-primary" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" class="alert-link">
+    Subject:</a>&nbsp;&nbsp;Hello 
+  </div> -->
+  <!-- <div class="alert alert-secondary" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" class="alert-link">
+    Subject:</a>&nbsp;&nbsp;Hello 
+  </div>
+  <div class="alert alert-success" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" class="alert-link">
+    Subject:</a>&nbsp;&nbsp;Hello 
+  </div>
+  <div class="alert alert-danger" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" class="alert-link">
+    Subject:</a>&nbsp;&nbsp;Hello 
+  </div>
+  -->
+  <div *ngFor="let message of messages" class="alert alert-warning" role="alert"  [routerLink]="['/school/detailMessage',message.fromId]" (click)='checkMessage()'>
+    New Message from {{message.Name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="alert-link">Subject:</a>&nbsp;&nbsp;{{message.subject}}
+  </div>
+
+  <!-- <div class="alert alert-info" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="alert-link">Subject:</a>&nbsp;&nbsp;Hello 
+  </div> -->
+  
+  <!-- <div class="alert alert-light" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="alert-link">Subject:</a>&nbsp;&nbsp;Hello 
+  </div>
+  <div class="alert alert-dark" role="alert">
+    New Message from tutor1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="alert-link">Subject:</a>&nbsp;&nbsp;Hello 
+  </div>  -->
