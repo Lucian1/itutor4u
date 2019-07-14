@@ -2,13 +2,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { getStyle, rgbToHex } from '@coreui/coreui/dist/js/coreui-utilities';
+import { TutorService } from '../../service/tutorService/tutor.service';
 @Component({
     templateUrl: 'school.component.html'
 })
 export class SchoolComponent implements OnInit {
-    constructor(
+  tutors : Object[] = [];  
+  constructor(
         @Inject(DOCUMENT)
-        private _document: any) { }
+        private _document: any,
+        private tutorService : TutorService
+        ) { }
     public themeColors(): void {
         Array.from(this._document.querySelectorAll('.theme-color')).forEach((el: HTMLElement) => {
             const background = getStyle('background-color', el);
@@ -30,6 +34,12 @@ export class SchoolComponent implements OnInit {
     }
     ngOnInit(): void {
         this.themeColors();
+        this.tutorService.showPendingTutorList().subscribe(
+          res => {
+            this.tutors = res;
+            console.log(this.tutors)
+          }
+        )
     }
     status: { isOpen: boolean } = { isOpen: false };
     disabled: boolean = false;
